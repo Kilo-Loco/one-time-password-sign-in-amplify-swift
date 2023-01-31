@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConfirmSignUpView: View {
     
+    let username: String
     let didConfirmSignUp: () -> Void
     
     @State var verificationCode: String = ""
@@ -35,6 +36,6 @@ struct ConfirmSignUpView: View {
 
 struct ConfirmSignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmSignUpView(didConfirmSignUp: {})
+        ConfirmSignUpView(username: "kiloloco", didConfirmSignUp: {})
     }
 }

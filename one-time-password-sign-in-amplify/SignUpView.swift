@@ -41,7 +41,10 @@ struct SignUpView: View {
         }
         .padding(.horizontal, 32)
         .sheet(isPresented: $confirmSignUpIsVisible) {
-            ConfirmSignUpView(didConfirmSignUp: shouldShowLogin)
+            ConfirmSignUpView(
+                username: username,
+                didConfirmSignUp: shouldShowLogin
+            )
         }
     }
 }
