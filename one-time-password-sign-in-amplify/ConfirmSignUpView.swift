@@ -5,6 +5,7 @@
 //  Created by Kilo Loco on 1/30/23.
 //
 
+import Amplify
 import SwiftUI
 
 struct ConfirmSignUpView: View {
@@ -25,12 +26,32 @@ struct ConfirmSignUpView: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numberPad)
             
-            Button("Confirm Sign Up", action: {})
+            Button("Confirm Sign Up", action: confirmSignUp)
                 .buttonStyle(.borderedProminent)
             
             Spacer()
         }
         .padding(.horizontal, 32)
+    }
+    
+    func confirmSignUp() {
+        Task {
+            do {
+                let result = try await Amplify.Auth.confirmSignUp(
+                    for: username,
+                    confirmationCode: verificationCode
+                )
+                switch result.nextStep {
+                case .confirmUser:
+                    print("Unexpected next step")
+                case .done:
+                    print("Sign up finished")
+                    didConfirmSignUp()
+                }
+            } catch {
+                print("Failed to confirm sign up", error)
+            }
+        }
     }
 }
 

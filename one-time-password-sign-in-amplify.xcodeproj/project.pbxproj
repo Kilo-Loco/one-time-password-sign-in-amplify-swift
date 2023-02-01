@@ -15,6 +15,10 @@
 		7C47C1992987FD0600070D95 /* ConfirmSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47C1982987FD0600070D95 /* ConfirmSignUpView.swift */; };
 		7C47C19B2987FD9A00070D95 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47C19A2987FD9A00070D95 /* LoginView.swift */; };
 		7C47C19D2987FEE400070D95 /* EmailCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47C19C2987FEE400070D95 /* EmailCodeView.swift */; };
+		7CD7330A29894CE600C2BF9C /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD7330929894CE600C2BF9C /* AWSCognitoAuthPlugin */; };
+		7CD7330C29894CE600C2BF9C /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD7330B29894CE600C2BF9C /* Amplify */; };
+		7CD7330F29894D1600C2BF9C /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CD7330D29894D1400C2BF9C /* amplifyconfiguration.json */; };
+		7CD7331029894D1600C2BF9C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CD7330E29894D1500C2BF9C /* awsconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,8 @@
 		7C47C1982987FD0600070D95 /* ConfirmSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSignUpView.swift; sourceTree = "<group>"; };
 		7C47C19A2987FD9A00070D95 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7C47C19C2987FEE400070D95 /* EmailCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCodeView.swift; sourceTree = "<group>"; };
+		7CD7330D29894D1400C2BF9C /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		7CD7330E29894D1500C2BF9C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD7330A29894CE600C2BF9C /* AWSCognitoAuthPlugin in Frameworks */,
+				7CD7330C29894CE600C2BF9C /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,8 @@
 		7C47C1852987FA5E00070D95 /* one-time-password-sign-in-amplify */ = {
 			isa = PBXGroup;
 			children = (
+				7CD7330D29894D1400C2BF9C /* amplifyconfiguration.json */,
+				7CD7330E29894D1500C2BF9C /* awsconfiguration.json */,
 				7C47C18A2987FA5F00070D95 /* Assets.xcassets */,
 				7C47C1862987FA5E00070D95 /* one_time_password_sign_in_amplifyApp.swift */,
 				7C47C1942987FA8D00070D95 /* AuthView.swift */,
@@ -95,6 +105,10 @@
 			dependencies = (
 			);
 			name = "one-time-password-sign-in-amplify";
+			packageProductDependencies = (
+				7CD7330929894CE600C2BF9C /* AWSCognitoAuthPlugin */,
+				7CD7330B29894CE600C2BF9C /* Amplify */,
+			);
 			productName = "one-time-password-sign-in-amplify";
 			productReference = 7C47C1832987FA5E00070D95 /* one-time-password-sign-in-amplify.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +137,9 @@
 				Base,
 			);
 			mainGroup = 7C47C17A2987FA5E00070D95;
+			packageReferences = (
+				7CD7330829894CE600C2BF9C /* XCRemoteSwiftPackageReference "amplify-swift" */,
+			);
 			productRefGroup = 7C47C1842987FA5E00070D95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD7331029894D1600C2BF9C /* awsconfiguration.json in Resources */,
 				7C47C18E2987FA5F00070D95 /* Preview Assets.xcassets in Resources */,
+				7CD7330F29894D1600C2BF9C /* amplifyconfiguration.json in Resources */,
 				7C47C18B2987FA5F00070D95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +374,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7CD7330829894CE600C2BF9C /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CD7330929894CE600C2BF9C /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CD7330829894CE600C2BF9C /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		7CD7330B29894CE600C2BF9C /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CD7330829894CE600C2BF9C /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C47C17B2987FA5E00070D95 /* Project object */;
 }

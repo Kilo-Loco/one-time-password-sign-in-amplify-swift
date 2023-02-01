@@ -5,6 +5,7 @@
 //  Created by Kilo Loco on 1/30/23.
 //
 
+import Amplify
 import SwiftUI
 
 struct SignUpView: View {
@@ -28,7 +29,7 @@ struct SignUpView: View {
             TextField("Email", text: $email)
                 .textFieldStyle(.roundedBorder)
             
-            Button("Sign Up", action: {})
+            Button("Sign Up", action: signUp)
                 .buttonStyle(.borderedProminent)
             
             Button(
@@ -45,6 +46,30 @@ struct SignUpView: View {
                 username: username,
                 didConfirmSignUp: shouldShowLogin
             )
+        }
+    }
+    
+    func signUp() {
+        Task {
+            do {
+                let options = AuthSignUpRequest.Options(
+                    userAttributes: [.init(.email, value: email.lowercased())]
+                )
+                let result = try await Amplify.Auth.signUp(
+                    username: username.lowercased(),
+                    password: UUID().uuidString,
+                    options: options
+                )
+                switch result.nextStep {
+                case .confirmUser:
+                    print("Next step is to confirm user")
+                    confirmSignUpIsVisible = true
+                case .done:
+                    print("Sign up is finished")
+                }
+            } catch {
+                print("Sign up failed", error)
+            }
         }
     }
 }

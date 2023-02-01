@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-otpswiftblog-dev-101715-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-otpswiftblog-dev-101715-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-otpswiftblog-dev-101715-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-otpswiftblog-dev-101715-deployment",
+      "UnauthRoleName": "amplify-otpswiftblog-dev-101715-unauthRole",
+      "StackName": "amplify-otpswiftblog-dev-101715",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-otpswiftblog-dev-101715/53b0ff60-a0ca-11ed-9986-064682b1e8d7",
+      "AmplifyAppId": "d2y6jtbabqs0m5",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-otpswiftblog-dev-101715-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "otpswiftblog00d2416400d24164": {}
+      },
+      "function": {
+        "otpswiftblog00d2416400d24164CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-otpswiftblog-dev-101715-deployment",
+          "s3Key": "amplify-builds/otpswiftblog00d2416400d24164CreateAuthChallenge-683276375151502f6431-build.zip"
+        },
+        "otpswiftblog00d2416400d24164DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-otpswiftblog-dev-101715-deployment",
+          "s3Key": "amplify-builds/otpswiftblog00d2416400d24164DefineAuthChallenge-4e53426f58744e524244-build.zip"
+        },
+        "otpswiftblog00d2416400d24164VerifyAuthChallengeResponse": {
+          "deploymentBucketName": "amplify-otpswiftblog-dev-101715-deployment",
+          "s3Key": "amplify-builds/otpswiftblog00d2416400d24164VerifyAuthChallengeResponse-70774961706d6b544773-build.zip"
+        }
+      }
+    }
+  }
+}

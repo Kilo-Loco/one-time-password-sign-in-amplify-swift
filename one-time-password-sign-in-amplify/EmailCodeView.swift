@@ -5,6 +5,7 @@
 //  Created by Kilo Loco on 1/30/23.
 //
 
+import Amplify
 import SwiftUI
 
 struct EmailCodeView: View {
@@ -25,12 +26,29 @@ struct EmailCodeView: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numberPad)
             
-            Button("Confirm Login", action: {})
+            Button("Confirm Login", action: confirmSignIn)
                 .buttonStyle(.borderedProminent)
             
             Spacer()
         }
         .padding(.horizontal, 32)
+    }
+    
+    func confirmSignIn() {
+        Task {
+            do {
+                let result = try await Amplify.Auth.confirmSignIn(challengeResponse: emailCode)
+                switch result.nextStep {
+                case .done:
+                    print("User has successfully signed in")
+                    didConfirmLogin()
+                default:
+                    print("Unexpected step:", result.nextStep)
+                }
+            } catch {
+                print("Confirm sign in failed:", error)
+            }
+        }
     }
 }
 

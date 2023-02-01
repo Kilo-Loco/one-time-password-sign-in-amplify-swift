@@ -5,6 +5,8 @@
 //  Created by Kilo Loco on 1/30/23.
 //
 
+import Amplify
+import AWSCognitoAuthPlugin
 import SwiftUI
 
 struct LoginView: View {
@@ -25,7 +27,7 @@ struct LoginView: View {
             TextField("Username", text: $username)
                 .textFieldStyle(.roundedBorder)
             
-            Button("Login", action: {})
+            Button("Login", action: login)
                 .buttonStyle(.borderedProminent)
             
             Button(
@@ -44,6 +46,27 @@ struct LoginView: View {
             )
         }
         
+    }
+    
+    func login() {
+        Task {
+            do {
+                let options = AWSAuthSignInOptions(authFlowType: .customWithoutSRP)
+                let result = try await Amplify.Auth.signIn(
+                    username: username.lowercased(),
+                    options: .init(pluginOptions: options)
+                )
+                switch result.nextStep {
+                case .confirmSignInWithCustomChallenge(let info):
+                    print("User must enter custom challenge. Additonal info: ", info ?? "N/A")
+                    emailCodeIsVisible = true
+                default:
+                    print("Unexpected auth flow. Next step:", result.nextStep)
+                }
+            } catch {
+                print("Failed to login", error)
+            }
+        }
     }
 }
 
